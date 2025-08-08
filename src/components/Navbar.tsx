@@ -15,9 +15,8 @@ export default function Navbar() {
   
   const navLinks = [
     { name: t.nav.home, path: "/" },
-    { name: t.nav.apartments, path: "/apartments" },
-    { name: t.nav.amenities, path: "/amenities" },
-    { name: t.nav.gallery, path: "/gallery" },
+    { name: t.nav.services, path: "/services" },
+    { name: t.nav.workers, path: "/workers" },
     { name: t.nav.contact, path: "/contact" }
   ];
 
@@ -49,8 +48,11 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center space-x-2">
           <ThemeToggle />
-          <Button asChild className="btn-primary">
-            <Link to="/booking">{t.nav.bookNow}</Link>
+          <Button asChild variant="outline" size="sm">
+            <Link to="/auth">{t.nav.login}</Link>
+          </Button>
+          <Button asChild className="btn-primary" size="sm">
+            <Link to="/services">{t.nav.findWorker}</Link>
           </Button>
         </div>
 
@@ -83,11 +85,18 @@ export default function Navbar() {
               </ul>
             </div>
             
-            <Button asChild className="w-full btn-primary mt-6">
-              <Link to="/booking" onClick={() => setMobileMenuOpen(false)}>
-                {t.nav.bookNow}
-              </Link>
-            </Button>
+            <div className="space-y-3 mt-6">
+              <Button asChild variant="outline" className="w-full">
+                <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
+                  {t.nav.login}
+                </Link>
+              </Button>
+              <Button asChild className="w-full btn-primary">
+                <Link to="/services" onClick={() => setMobileMenuOpen(false)}>
+                  {t.nav.findWorker}
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
